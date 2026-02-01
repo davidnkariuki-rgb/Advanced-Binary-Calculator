@@ -5,9 +5,7 @@ import operations.BinaryOperation;
 public class BinaryCalculator {
 
     private BinaryOperation operation;
-    private String currentMode = "BIN"; // BIN, DEC, HEX, OCT
-
-    // Setter for polymorphic operation
+    private String currentMode = "BIN"; 
     public void setOperation(BinaryOperation operation) {
         this.operation = operation;
     }
@@ -16,7 +14,6 @@ public class BinaryCalculator {
         this.currentMode = mode;
     }
 
-    // Parse input based on current mode and convert to decimal
     private long parseInput(String input) {
         input = input.trim().toUpperCase();
         try {
@@ -37,7 +34,6 @@ public class BinaryCalculator {
         }
     }
 
-    // Convert decimal to current mode
     private String formatOutput(long decimal) {
         switch (currentMode) {
             case "BIN":
@@ -53,7 +49,6 @@ public class BinaryCalculator {
         }
     }
 
-    // Perform computation with universal number system support
     public String compute(String a, String b) {
         if (operation == null) {
             throw new IllegalStateException("No operation selected");
@@ -66,7 +61,6 @@ public class BinaryCalculator {
         return formatOutput(result);
     }
 
-    // ===== Conversion Methods (Universal) =====
 
     public String toHex(String input) {
         long decimal = parseInput(input);
